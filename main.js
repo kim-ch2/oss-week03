@@ -42,8 +42,22 @@ try {
   //   1. `${place.name}, ${place.country} (${lat}, ${lon})`    lat/lon 은 toFixed(2)
   //   2. `Now: ${temp.toFixed(1)}${unit}, ${describe(code)}`
   //   3. 날마다: `${label(date)}  min ${min}  max ${max}  ${describe(code)}`    min/max 는 toFixed(1)
-
+  //도시 나라 좌표 
+  console.log(
+    `${place.name}, ${place.country} (${place.latitude.toFixed(2)}, ${place.longitude.toFixed(2)})`
+  );
+  //현재 기온과 날씨
+  console.log(
+    `Now: ${fc.now.temp.toFixed(1)}${fc.now.unit}, ${describe(fc.now.code)}`
+  );
+  //날마다 한 줄 (요일 날짜 / 최저 / 최고 / 날씨)
+  for (const day of fc.days) {
+    console.log(
+      `${label(day.date)}  min ${day.min.toFixed(1)}  max ${day.max.toFixed(1)}  ${describe(day.code)}`
+    );
+  }
   // TODO (P6): --save, --offline (README 참고)
+  
 } catch (err) {
   console.error("Error:", err.message);
   process.exit(1);
