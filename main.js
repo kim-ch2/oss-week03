@@ -33,7 +33,6 @@ const WEEKDAY = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 function label(date) {                       // "2026-09-17" → "Thu 09-17"
   return `${WEEKDAY[new Date(date).getUTCDay()]} ${date.slice(5)}`;
 }
-
 try {
   const place = await geocode(name);
   const fc = await forecast(place);
