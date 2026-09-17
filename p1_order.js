@@ -41,7 +41,7 @@ sleep(10).then(() => console.log("F"));
 
 console.log("G");
 
-// prediction:
-// actual:
+// prediction: A G D C F E B
+// actual:     A D G C F E B
 // why I was wrong (one line per miss):
-//
+//work함수는 async 함수이니 호출하는 순간 미뤄질거라고 생각했지만 실제로는 await을 만나야 미뤄지기 때문에 D 다음에 G가 출력된다.
